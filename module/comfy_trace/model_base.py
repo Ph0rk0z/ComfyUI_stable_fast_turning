@@ -27,7 +27,8 @@ class BaseModelApplyModelModule(torch.nn.Module):
     def forward(
         self,
         input_x,
-        timestep,
+        timestep, 
+        guidance=None,
         c_concat=None,
         c_crossattn=None,
         y=None,
@@ -42,7 +43,8 @@ class BaseModelApplyModelModule(torch.nn.Module):
 
         return self.func(
             input_x,
-            timestep,
+            timestep, 
+            guidance=guidance,
             c_concat=c_concat,
             c_crossattn=c_crossattn,
             control=control,
@@ -59,6 +61,7 @@ class BaseModelApplyModelModuleFactory(ModuleFactory):
         "c_crossattn",
         "y",
         "control",
+        "guidance",
     )
 
     def __init__(self, callable, kwargs) -> None:
@@ -162,6 +165,7 @@ class UNetModelModule(torch.nn.Module):
         context=None,
         y=None,
         control=None,
+        guidance=None,
         transformer_options={},
         **kwargs,
     ):
@@ -175,6 +179,7 @@ class UNetModelModule(torch.nn.Module):
             context=context,
             y=y,
             control=control,
+            guidance=guidance,
             transformer_options=new_transformer_options,
             **kwargs,
         )
@@ -187,6 +192,7 @@ class UNetModelModuleFactory(ModuleFactory):
         "context",
         "y",
         "control",
+        "guidance",
     )
 
     def __init__(self, diffusion_model, unet_config, **kwargs) -> None:

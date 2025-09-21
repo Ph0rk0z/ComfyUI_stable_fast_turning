@@ -7,14 +7,16 @@ NODE_CLASS_MAPPINGS = {}
 NODE_DISPLAY_NAME_MAPPINGS = {}
 
 try:
-    from .node import ApplyStableFastUnet
+    from .node import ApplyStableFastUnet, ApplyStableFastVae
 
     SF_NODE_CLASS_MAPPINGS = {
         "ApplyStableFastUnet": ApplyStableFastUnet,
+        "ApplyStableFastVae": ApplyStableFastVae,
     }
 
     SF_NODE_DISPLAY_NAME_MAPPINGS = {
         "ApplyStableFastUnet": "Apply StableFast Unet",
+        "ApplyStableFastVae": "Apply StableFast Vae",
     }
     NODE_CLASS_MAPPINGS.update(SF_NODE_CLASS_MAPPINGS)
     NODE_DISPLAY_NAME_MAPPINGS.update(SF_NODE_DISPLAY_NAME_MAPPINGS)
