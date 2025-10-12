@@ -1,3 +1,7 @@
+# Have to revert https://github.com/comfyanonymous/ComfyUI/commit/6e59934089df3375e39db174340b6a937b226c83 until I find a fix.
+```
+git revert 6e59934089df3375e39db174340b6a937b226c83
+```
 # ComfyUI_stable_fast
 
 Experimental usage of [stable-fast](https://github.com/chengzeyi/stable-fast) and TensorRT.
